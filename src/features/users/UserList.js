@@ -1,8 +1,20 @@
 const UserList = () => {
-  const users = [];
+  const users = [
+    { id: "1", name: "Sebastian Fernandez", email: "sebastic@chivo.com" },
+    { id: "2", name: "Lupita Fernandez", email: "lupita@chivo.com" },
+    { id: "3", name: "Milu Martinez", email: "milu@chivo.com" },
+    { id: "4", name: "Herbert Fernandez", email: "herbert@chivo.com" },
+  ];
 
-  const renderCard = () => <div>Users here</div>
-
+  const renderCard = () =>
+    users.map((user) => (
+      <div className="bg-gray-300 p-5 flex items-center justify-between">
+        <div>
+          <h3 className="font-bold text-lg text-gray-700">{user.name}</h3>
+          <span className="font-normal text-gray-600">{user.email}</span>
+        </div>
+      </div>
+    ));
 
   return (
     <div className="grid gap-5 md:grid-cols-2">
