@@ -1,4 +1,5 @@
 import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
+import Button from "../../components/Button";
 
 const UserList = () => {
   const users = [
