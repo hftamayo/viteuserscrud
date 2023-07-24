@@ -1,5 +1,7 @@
 import React from "react";
 import UserList from "./features/users/UserList";
+import { Route, Routes } from "react-router-dom";
+import AddUSer from "./features/users/AddUSer";
 
 function App() {
   return (
@@ -7,7 +9,10 @@ function App() {
       <h1 className="text-center font-bold text-2xl text-gray-700">
         User's CRUD
       </h1>
-      <UserList />
+      <Routes>
+        <Route path="/view-users" element={<UserList />} />
+        <Route path="/add-user" element={<AddUSer />} />        
+      </Routes>
     </div>
   );
 }
