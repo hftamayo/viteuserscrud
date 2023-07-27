@@ -15,7 +15,7 @@ const UserList = () => {
           <span className="font-normal text-gray-600">{user.email}</span>
         </div>
         <div className="flex gap-4">
-          <Link to={`edit-user/${user.id}`}>
+          <Link to={`/edit-user/${user.id}`}>
           <button>
             <FaEdit />
           </button>
