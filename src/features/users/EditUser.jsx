@@ -2,10 +2,12 @@ import TextField from "../../components/TextField";
 import Button from "../../components/Button";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { editUser } from "./userSlice";
 
 const EditUser = () => {
   const params = useParams();
+  const dispatch = useDispatch();
   const users = useSelector((store) => store.users);
   const navigate = useNavigate();
   const existingUser = users.filter((user) => user.id === params.id);
@@ -17,6 +19,14 @@ const EditUser = () => {
 
   const handleEditUser = () => {
     setValues({ name: "", email: "" });
+    dispatch(
+      editUser({
+        id: params.id,
+        name: values.name,
+        email: values.email,
+      })
+    );
+
     navigate("/view-users");
   };
 
