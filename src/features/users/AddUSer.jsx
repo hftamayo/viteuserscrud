@@ -2,8 +2,11 @@ import TextField from "../../components/TextField";
 import Button from "../../components/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "./userSlice";
 
 const AddUSer = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [values, setValues] = useState({
     name: "",
@@ -12,6 +15,13 @@ const AddUSer = () => {
 
   const handleAddUser = () => {
     setValues({ name: "", email: "" });
+    dispatch(
+      addUser({
+        id: "5",
+        name: values.name,
+        email: values.email,
+      })
+    );
     navigate("/view-users");
   };
 
