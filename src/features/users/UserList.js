@@ -1,26 +1,34 @@
 import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUser } from "./userSlice";
 
 const UserList = () => {
-  const users = useSelector(store => store.users);
-  console.log(users);
+  const dispatch = useDispatch();
+  const users = useSelector((store) => store.users);
+
+  const handleRemoveUser = (id) => {
+    dispatch(deleteUser({ id }));
+  };
 
   const renderCard = () =>
     users.map((user) => (
-      <div className="bg-gray-300 p-5 flex items-center justify-between" key={user.id}>
+      <div
+        className="bg-gray-300 p-5 flex items-center justify-between"
+        key={user.id}
+      >
         <div>
           <h3 className="font-bold text-lg text-gray-700">{user.name}</h3>
           <span className="font-normal text-gray-600">{user.email}</span>
         </div>
         <div className="flex gap-4">
           <Link to={`/edit-user/${user.id}`}>
-          <button>
-            <FaEdit />
-          </button>
+            <button>
+              <FaEdit />
+            </button>
           </Link>
-          <button>
+          <button onClick={() => handleRemoveUser(user.id)}>
             <FaRegTrashAlt />
           </button>
         </div>
@@ -29,7 +37,9 @@ const UserList = () => {
 
   return (
     <div>
-      <Link to="/add-user"><Button>Add User</Button></Link>
+      <Link to="/add-user">
+        <Button>Add User</Button>
+      </Link>
       <div className="grid gap-5 md:grid-cols-2">
         {users.length ? (
           renderCard()
