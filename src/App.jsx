@@ -2,6 +2,7 @@ import React from "react";
 import UserList from "./features/users/UserList";
 import { Route, Routes } from "react-router-dom";
 import AddUSer from "./features/users/AddUSer";
+import EditUser from "./features/users/EditUser";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       </h1>
       <Routes>
         <Route path="/view-users" element={<UserList />} />
-        <Route path="/add-user" element={<AddUSer />} />        
+        <Route path="/add-user" element={<AddUSer />} />     
+        <Route path="/edit-user/:id" element={<EditUser />} />   
       </Routes>
     </div>
   );
