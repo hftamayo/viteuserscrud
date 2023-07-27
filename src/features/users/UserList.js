@@ -1,14 +1,11 @@
 import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const UserList = () => {
-  const users = [
-    { id: "1", name: "Sebastian Fernandez", email: "sebastic@chivo.com" },
-    { id: "2", name: "Lupita Fernandez", email: "lupita@chivo.com" },
-    { id: "3", name: "Milu Martinez", email: "milu@chivo.com" },
-    { id: "4", name: "Herbert Fernandez", email: "herbert@chivo.com" },
-  ];
+  const users = useSelector(store => store.users);
+  console.log(users);
 
   const renderCard = () =>
     users.map((user) => (
