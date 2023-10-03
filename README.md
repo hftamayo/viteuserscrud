@@ -31,8 +31,8 @@ CRUD Operations based on User's model
 * Experimental: sourcecode in progress
 
 ## Snapshot ##
-* [localhost/view-users](./snapshots/view.png)
-* [localhost/add-user](./snapshots/add.png)
+* ![localhost/view-users](./snapshots/view.png)
+* ![localhost/add-user](./snapshots/add.png)
 ## Proof of Concept ##
 [Todo]
 
